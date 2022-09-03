@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "Kalkulator macierzy";
+}
+
+<div id="container">
+    <h1>Wygeneruj szablon macierzy kwadratowej wpisując stopień (A) macierzy w poniższe pole (Macierz kwadratowa ma wymiary AxA; Min. wymiar macierzy to 2x2, a maks. wymiar to 10x10). Aby przejść dalej wypełnij szablon i kliknij przycisk "Prześlij macierz" na dole.</h1>
+    <input id="numberOfDivs" type="number" />
+    <br />
+    <button id="btn" style="margin-bottom:20px;" class="btn btn-success">Generuj szablon macierzy</button><br />
+    <p style="margin:0;">lub</p>
+    <br />
+    <button id="btn-random" style="margin-bottom:20px;" class="btn btn-primary">Generuj macierz losowo</button>
+    <div id="main">
+        @using (Html.BeginForm("MatrixCheck", "Operations"))
+        {
+            <div id="container-divs"></div>
+            <input type="submit" id="submit" class="btn-primary" value="Prześlij macierz" />
+            <div id="left-top" class="decor"></div>
+            <div id="right-top" class="decor"></div>
+            <div id="left-bottom" class="decor"></div>
+            <div id="right-bottom" class="decor"></div>
+        } 
+    </div>
+</div>
+
+<script src="~/js/home_index.js" asp-append-version="true"></script>

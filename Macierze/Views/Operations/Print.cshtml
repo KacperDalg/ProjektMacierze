@@ -1,0 +1,28 @@
+﻿
+<center>
+
+    <h1 style="font-size:30px;margin-bottom:10px;">Wczytana macierz</h1>
+    <!--<p>@ViewBag.Size</p>-->
+    <div class="container-print">
+        @{
+            int i = 0;
+            int x = 1;
+        }
+
+        @foreach (var item in ViewBag.List)
+        {
+            <div class="item">@item</div>
+            i += 1;
+            if (ViewBag.Size*x == i){
+                <div class="linebreak"></div>
+                x+=1;
+            }
+        }
+        <div id="left-top" class="decor"></div>
+        <div id="right-top" class="decor"></div>
+        <div id="left-bottom" class="decor"></div>
+        <div id="right-bottom" class="decor"></div>
+    </div>
+    <br />
+    <a asp-controller="Operations" asp-action="Options" class="btn btn-success" style="font-size:24px;">Wróć do opcji</a>
+</center>

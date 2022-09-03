@@ -1,0 +1,21 @@
+﻿@using System.Data;
+@{
+    ViewData["Title"] = "Wczytaj z pliku";
+}
+<center>
+    
+<form method="post" enctype="multipart/form-data" style="font-size:20px;" asp-controller="Operations" asp-action="UploadFile">
+        <input type="file" name="file" /><br /><br />
+        <input style="font-size:20px;" class="btn btn-success" type="submit" />
+</form>
+<br />
+    <h1 style="font-size:30px;">Wczytaj macierz </h1>
+    <h2 style="font-size:18px;">Akceptowana struktura macierzy w pliku .txt to kolejne jej elementy (liczby) oddzielone znakiem spacji w tym samym wierszu, a wiersze oddzielone od siebie enterem (przykład poniżej).</h2>
+    <img src="~/img/txt_example.png" />
+    <br />
+    <br />
+    <h2 style="font-size:18px;">Akceptowana struktura macierzy w pliku .csv to kolejne jej elementy (liczby) w oddzielnych komórkach tabeli(przykład poniżej).</h2>
+    <img src="~/img/csv_example.png" />
+    <br />
+    <br />
+</center>
