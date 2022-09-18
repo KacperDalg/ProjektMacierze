@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "K4R4NIIkEHk/sCeG0C3LvOokTdqfssztwRU9HUgmMLGXIiZ/R2e38f3/xI0Ti9MnAw3sCXtG6oX0h/5TudKcNQ==",
+  "dgSpecHash": "xx+d8DpTONpTSY2nrTiYnXzVmfdmIVgKky8ZYlwDnksDC7Ampjjrush0vycrL/LeN24QHpokJrYAWdCa6udvvQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Kacper\\source\\repos\\Macierze\\Macierze\\Macierze.csproj",
   "expectedPackageFiles": [
@@ -17,8 +17,10 @@
     "C:\\Users\\Kacper\\.nuget\\packages\\system.reflection.primitives\\4.3.0\\system.reflection.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\Kacper\\.nuget\\packages\\system.resources.resourcemanager\\4.3.0\\system.resources.resourcemanager.4.3.0.nupkg.sha512",
     "C:\\Users\\Kacper\\.nuget\\packages\\system.runtime\\4.3.0\\system.runtime.4.3.0.nupkg.sha512",
+    "C:\\Users\\Kacper\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
     "C:\\Users\\Kacper\\.nuget\\packages\\system.runtime.extensions\\4.3.0\\system.runtime.extensions.4.3.0.nupkg.sha512",
     "C:\\Users\\Kacper\\.nuget\\packages\\system.text.encoding\\4.3.0\\system.text.encoding.4.3.0.nupkg.sha512",
+    "C:\\Users\\Kacper\\.nuget\\packages\\system.text.encoding.codepages\\6.0.0\\system.text.encoding.codepages.6.0.0.nupkg.sha512",
     "C:\\Users\\Kacper\\.nuget\\packages\\system.threading.tasks\\4.3.0\\system.threading.tasks.4.3.0.nupkg.sha512"
   ],
   "logs": []

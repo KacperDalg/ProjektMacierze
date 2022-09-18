@@ -1,8 +1,6 @@
-﻿namespace MacierzeTest.Models
+﻿namespace Macierze.Models;
+public class MatrixModel
 {
-    public class MatrixModel
-    {
-        public List<string>? FormList { get; set; }
-        public int MatrixSize { get; set; }
-    }
+    public List<string>? FormList { get; set; }
+    public int MatrixSize { get; set; }
 }

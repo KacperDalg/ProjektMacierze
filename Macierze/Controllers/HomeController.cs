@@ -1,37 +1,29 @@
-﻿using MacierzeTest.Models;
+﻿using Macierze.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.VisualBasic;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Numerics;
-using System.IO;
-using Microsoft.AspNetCore.Hosting.Server;
-using System.Globalization;
 
-namespace MacierzeTest.Controllers
+namespace Macierze.Controllers;
+public class HomeController : Controller
 {
-    public class HomeController : Controller
+    private readonly ILogger<HomeController> _logger;
+
+    public HomeController(ILogger<HomeController> logger)
     {
-        private readonly ILogger<HomeController> _logger;
+        _logger = logger;
+    }
 
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-        }
+    public IActionResult Index()
+    {
+        return View();
+    }
+    public IActionResult Upload()
+    {
+        return View();
+    }
 
-        public IActionResult Index()
-        {
-            return View();
-        }
-        public IActionResult Upload()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
+    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+    public IActionResult Error()
+    {
+        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
 }
