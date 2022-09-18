@@ -1,7 +1,6 @@
 ﻿using Macierze.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Text;
-using ExcelDataReader;
 using static Macierze.Matrix_Operations.SumDiagonal;
 using static Macierze.Matrix_Operations.SumRow;
 using static Macierze.Matrix_Operations.SumColumn;
