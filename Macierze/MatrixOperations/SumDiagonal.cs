@@ -1,6 +1,6 @@
 ﻿using static Macierze.Controllers.OperationsController;
 
-namespace Macierze.Matrix_Operations;
+namespace Macierze.MatrixOperations;
 public class SumDiagonal
 {
     public static int SumDiagonalFunction()

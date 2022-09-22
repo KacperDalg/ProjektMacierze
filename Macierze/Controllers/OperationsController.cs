@@ -1,12 +1,12 @@
 ﻿using Macierze.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Text;
-using static Macierze.Matrix_Operations.SumDiagonal;
-using static Macierze.Matrix_Operations.SumRow;
-using static Macierze.Matrix_Operations.SumColumn;
-using static Macierze.Matrix_Operations.MatrixCheck;
-using static Macierze.File_Operations.SaveFile;
-using static Macierze.File_Operations.UploadFile;
+using static Macierze.MatrixOperations.SumDiagonal;
+using static Macierze.MatrixOperations.SumRow;
+using static Macierze.MatrixOperations.SumColumn;
+using static Macierze.MatrixOperations.MatrixCheck;
+using static Macierze.FileOperations.SaveFile;
+using static Macierze.FileOperations.UploadFile;
 
 namespace Macierze.Controllers;
 public class OperationsController : Controller

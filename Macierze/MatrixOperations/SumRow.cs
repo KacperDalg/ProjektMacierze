@@ -1,4 +1,4 @@
-﻿namespace Macierze.Matrix_Operations;
+﻿namespace Macierze.MatrixOperations;
 public class SumRow
 {
     public static int SumRowFunction(List<string> list, int size, string row)

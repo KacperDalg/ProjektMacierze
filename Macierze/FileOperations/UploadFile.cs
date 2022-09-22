@@ -2,7 +2,7 @@
 using System.Data;
 using System.Text;
 
-namespace Macierze.File_Operations;
+namespace Macierze.FileOperations;
 public class UploadFile
 {
     public static List<string> FileDataToMatrix(List<string> numbers, IFormFile file)
