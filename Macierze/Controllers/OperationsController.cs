@@ -5,8 +5,10 @@ using static Macierze.MatrixOperations.SumDiagonal;
 using static Macierze.MatrixOperations.SumRow;
 using static Macierze.MatrixOperations.SumColumn;
 using static Macierze.MatrixOperations.MatrixCheck;
-using static Macierze.FileOperations.SaveFile;
-using static Macierze.FileOperations.UploadFile;
+using static Macierze.FileOperations.MatrixToTxtFileConverter;
+using static Macierze.FileOperations.TxtFileToMatrixConverter;
+using static Macierze.FileOperations.XlsxFileToMatrixConverter;
+using static Macierze.FileOperations.CsvFileToMatrixConverter;
 
 namespace Macierze.Controllers;
 public class OperationsController : Controller
@@ -39,13 +41,17 @@ public class OperationsController : Controller
     {
         List<string> matrixNumbersArray = new List<string>();
 
-        if (file.FileName.Contains(".txt") || file.FileName.Contains(".csv"))
+        if (file.FileName.Contains(".txt"))
         {
-            FileDataToMatrix(matrixNumbersArray, file);
+            ReadTxtFile(matrixNumbersArray, file);
+        }
+        else if (file.FileName.Contains(".csv"))
+        {
+            ReadCsvFile(matrixNumbersArray, file);
         }
         else if (file.FileName.Contains(".xlsx"))
         {
-            ExcelDataToMatrix(matrixNumbersArray, file);
+            ReadXlsxFile(matrixNumbersArray, file);
         }
         else
         {
@@ -130,6 +136,6 @@ public class OperationsController : Controller
 
     public FileResult Save()
     {
-        return File(Encoding.ASCII.GetBytes(MatrixToStringFunction()), "text/plain", "moja_macierz.txt");
+        return File(Encoding.ASCII.GetBytes(ConvertMatrixToString()), "text/plain", "moja_macierz.txt");
     }
 }
