@@ -1,7 +1,7 @@
 ﻿namespace Macierze.MatrixOperations;
-public class MatrixCheck
+public class MatrixCheckProvider
 {
-    public static int MatrixSizeCheckFunction(List<string> list)
+    public static int CheckMatrixSize(List<string> list)
     {
         int size = 0;
 
@@ -15,8 +15,7 @@ public class MatrixCheck
         }
         return size;
     }
-
-    public static List<string> MatrixToListFunction(IFormCollection collection)
+    public static List<string> ConvertMatrixToList(IFormCollection collection)
     {
         List<string> list = new List<string>();
         foreach (var item in collection)

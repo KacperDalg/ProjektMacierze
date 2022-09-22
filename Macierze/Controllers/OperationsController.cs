@@ -1,10 +1,8 @@
 ﻿using Macierze.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Text;
-using static Macierze.MatrixOperations.SumDiagonal;
-using static Macierze.MatrixOperations.SumRow;
-using static Macierze.MatrixOperations.SumColumn;
-using static Macierze.MatrixOperations.MatrixCheck;
+using static Macierze.MatrixOperations.MatrixCheckProvider;
+using static Macierze.MatrixOperations.MatrixOperationsProvider;
 using static Macierze.FileOperations.MatrixToTxtFileConverter;
 using static Macierze.FileOperations.TxtFileToMatrixConverter;
 using static Macierze.FileOperations.XlsxFileToMatrixConverter;
@@ -18,7 +16,7 @@ public class OperationsController : Controller
     [HttpPost]
     public RedirectToActionResult MatrixCheck(IFormCollection collection)
     {
-        List<string> matrixNumbersArray = MatrixToListFunction(collection);
+        List<string> matrixNumbersArray = ConvertMatrixToList(collection);
 
         if (matrixNumbersArray.Count == 0)
         {
@@ -30,7 +28,7 @@ public class OperationsController : Controller
         }
         else
         {
-            Model.MatrixSize = MatrixSizeCheckFunction(matrixNumbersArray);
+            Model.MatrixSize = CheckMatrixSize(matrixNumbersArray);
             Model.FormList = matrixNumbersArray;
             return RedirectToAction("Options", "Operations");
         }
@@ -86,7 +84,7 @@ public class OperationsController : Controller
 
     public IActionResult SumDiagonal()
     {
-        ViewBag.Sum = SumDiagonalFunction();
+        ViewBag.Sum = SumFromDiagonal();
         return View();
     }
 
@@ -107,7 +105,7 @@ public class OperationsController : Controller
         else
         {
             ViewBag.Row = row;
-            ViewBag.Sum = SumRowFunction(list, size, row);
+            ViewBag.Sum = SumFromRow(list, size, row);
             return View();
         }
     }
@@ -129,7 +127,7 @@ public class OperationsController : Controller
         else
         {
             ViewBag.Column = column;
-            ViewBag.Sum = SumColumnFunction(list, size, column);
+            ViewBag.Sum = SumFromColumn(list, size, column);
             return View();
         }
     }
