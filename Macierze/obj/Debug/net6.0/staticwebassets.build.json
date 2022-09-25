@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "CTj82ThEV5u7kNWq7Jfq5vzwyF+NMi8kxrO8DC+ybtI=",
+  "Hash": "Or9BaE3TUg5OqgV7AkAmnop+g51N9nMoxZh+r49vTHI=",
   "Source": "Macierze",
   "BasePath": "_content/Macierze",
   "Mode": "Default",
@@ -51,12 +51,12 @@
       "OriginalItemSpec": "C:\\Users\\Kacper\\source\\repos\\Macierze\\Macierze\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\Macierze.bundle.scp.css"
     },
     {
-      "Identity": "C:\\Users\\Kacper\\source\\repos\\Macierze\\Macierze\\wwwroot\\css\\home_index.css",
+      "Identity": "C:\\Users\\Kacper\\source\\repos\\Macierze\\Macierze\\wwwroot\\css\\homeIndex.css",
       "SourceId": "Macierze",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Kacper\\source\\repos\\Macierze\\Macierze\\wwwroot\\",
       "BasePath": "_content/Macierze",
-      "RelativePath": "css/home_index.css",
+      "RelativePath": "css/homeIndex.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -65,15 +65,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\home_index.css"
+      "OriginalItemSpec": "wwwroot\\css\\homeIndex.css"
     },
     {
-      "Identity": "C:\\Users\\Kacper\\source\\repos\\Macierze\\Macierze\\wwwroot\\css\\home_options.css",
+      "Identity": "C:\\Users\\Kacper\\source\\repos\\Macierze\\Macierze\\wwwroot\\css\\homeOptions.css",
       "SourceId": "Macierze",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Kacper\\source\\repos\\Macierze\\Macierze\\wwwroot\\",
       "BasePath": "_content/Macierze",
-      "RelativePath": "css/home_options.css",
+      "RelativePath": "css/homeOptions.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -82,15 +82,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\home_options.css"
+      "OriginalItemSpec": "wwwroot\\css\\homeOptions.css"
     },
     {
-      "Identity": "C:\\Users\\Kacper\\source\\repos\\Macierze\\Macierze\\wwwroot\\css\\operations_print.css",
+      "Identity": "C:\\Users\\Kacper\\source\\repos\\Macierze\\Macierze\\wwwroot\\css\\operationsPrint.css",
       "SourceId": "Macierze",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Kacper\\source\\repos\\Macierze\\Macierze\\wwwroot\\",
       "BasePath": "_content/Macierze",
-      "RelativePath": "css/operations_print.css",
+      "RelativePath": "css/operationsPrint.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -99,7 +99,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\operations_print.css"
+      "OriginalItemSpec": "wwwroot\\css\\operationsPrint.css"
     },
     {
       "Identity": "C:\\Users\\Kacper\\source\\repos\\Macierze\\Macierze\\wwwroot\\css\\site.css",

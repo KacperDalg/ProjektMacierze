@@ -1,6 +1,9 @@
-﻿<center>
+﻿@{
 
-    <h1 style="font-size:30px;margin-bottom:10px;">Wczytana macierz</h1>
+    ViewData["Title"] = "Twoja macierz";
+}
+    
+    <h1 style="font-size:30px;text-align:center;margin-bottom:10px;display:block;">Wczytana macierz</h1>
     <div class="container-print">
         @{
             int i = 0;
@@ -22,5 +25,4 @@
         <div id="right-bottom" class="decor"></div>
     </div>
     <br />
-    <a asp-controller="Operations" asp-action="Options" class="btn btn-success" style="font-size:24px;">Wróć do opcji</a>
-</center>
+<a asp-controller="Operations" asp-action="Options" class="btn btn-success" style="font-size:24px;margin:auto;display:block;width:250px;">Wróć do opcji</a>

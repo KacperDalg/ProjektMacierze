@@ -3,12 +3,12 @@
     ViewData["Title"] = "Suma z kolumny";
 }
 
-<center>
+<div class="center">
     <form asp-action="SumColumn" asp-controller="Operations">
-        <h1 style="font-size:30px;">Podaj numer kolumny, której sumę elementów chcesz policzyć:</h1>
-        <input type="number" style="text-align:center;font-size:24px;" name="column">
+        <h1 style="font-size:30px;margin:auto;display:block;">Podaj numer kolumny, której sumę elementów chcesz policzyć:</h1>
+        <input type="number" style="margin:auto;text-align:center;font-size:24px;display:block;" name="column">
         <br />
-        <input style="font-size:24px;" type="submit" id="submit" class="btn-primary" value="Potwierdź" />
+        <input style="font-size:24px;margin:auto;display:block;" type="submit" id="submit" class="btn-primary" value="Potwierdź" />
     </form>
-    <a asp-controller="Operations" asp-action="Options" class="btn btn-success" style="font-size:24px;position:absolute;bottom:50px;transform: translate(-50%, -50%);">Wróć do opcji</a>
-</center>
+</div>
+    <a asp-controller="Operations" asp-action="Options" class="btn btn-success" style="font-size:24px;position:absolute;left:50vw;bottom:50px;transform: translate(-50%, -50%);">Wróć do opcji</a>

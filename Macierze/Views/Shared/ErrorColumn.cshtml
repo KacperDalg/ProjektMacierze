@@ -3,8 +3,8 @@
     ViewData["Title"] = "Błąd";
 }
 
-<center>
+<div class="center">
     <h1 style="font-size:30px;">Brak określonej kolumny w macierzy! (Minimalna kolumna - 1; Maksymalna kolumna - @ViewBag.Size)</h1>
     <br />
-    <a asp-controller="Operations" asp-action="Options" class="btn btn-success" style="font-size:24px;">Wróć do opcji</a>
-</center>
+</div>
+<a asp-controller="Operations" asp-action="Options" class="btn btn-success" style="font-size:24px;position:absolute;left:50vw;bottom:50px;transform: translate(-50%, -50%);">Wróć do opcji</a>

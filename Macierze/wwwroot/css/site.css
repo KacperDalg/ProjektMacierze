@@ -1,5 +1,7 @@
 html {
-  font-size: 14px;
+    position: relative;
+    min-height: 100%;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
@@ -8,7 +10,9 @@ html {
   }
 }
 
-html {
-  position: relative;
-  min-height: 100%;
+.center{
+    width: 100%;
+    display: flex;
+    justify-content:center;
+    align-items:center;
 }
