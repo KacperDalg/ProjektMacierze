@@ -2,13 +2,27 @@
 
     ViewData["Title"] = "Suma z kolumny";
 }
+@model Macierze.Models.MatrixModel;
+@{
+    string list = "";
+    foreach (var item in Model.FormList)
+    {
+        list += item + ",";
+    }
+}
 
 <div class="center">
     <form asp-action="SumColumn" asp-controller="Operations">
         <h1 style="font-size:30px;margin:auto;display:block;">Podaj numer kolumny, której sumę elementów chcesz policzyć:</h1>
         <input type="number" style="margin:auto;text-align:center;font-size:24px;display:block;" name="column">
         <br />
+        <input type="hidden" id="formList" name="formList" value="@list" />
+        <input type="hidden" id="matrixSize" name="matrixSize" value="@Model.MatrixSize" />
         <input style="font-size:24px;margin:auto;display:block;" type="submit" id="submit" class="btn-primary" value="Potwierdź" />
     </form>
 </div>
-    <a asp-controller="Operations" asp-action="Options" class="btn btn-success" style="font-size:24px;position:absolute;left:50vw;bottom:50px;transform: translate(-50%, -50%);">Wróć do opcji</a>
+<form asp-action="RedirectToOptions" asp-controller="Operations">
+    <input type="hidden" id="formList" name="formList" value="@list" />
+    <input type="hidden" id="matrixSize" name="matrixSize" value="@Model.MatrixSize" />
+    <button type="submit" asp-controller="Operations" asp-action="RedirectToOptions" class="btn btn-success" style="font-size:24px;position:absolute;left:50vw;bottom:50px;transform: translate(-50%, -50%);">Wróć do opcji</button>
+</form>

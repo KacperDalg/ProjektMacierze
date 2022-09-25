@@ -1,9 +1,9 @@
-﻿using static Macierze.Controllers.OperationsController;
+﻿using Macierze.Models;
 
 namespace Macierze.FileOperations;
 public class MatrixToTxtFileConverter
 {
-    public static string ConvertMatrixToString()
+    public static string ConvertMatrixToString(MatrixModel Model)
     {
         string content = "";
         int i = 0;

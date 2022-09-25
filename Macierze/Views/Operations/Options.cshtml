@@ -1,18 +1,33 @@
 ﻿@{
-
     ViewData["Title"] = "Opcje";
 }
+@model Macierze.Models.MatrixModel;
 
 <div class="options-container">
-<h1>Opcje</h1>
-<br />
-<a asp-controller="Operations" asp-action="Print">1. Wypisz macierz na ekran.</a>
-<br />
-<a asp-controller="Operations" asp-action="SumDiagonal">2. Oblicz sumę elementów głównej przekątnej macierzy.</a>
-<br />
-<a asp-controller="Operations" asp-action="MatrixRow">3. Oblicz sumę elementów z wskazanego wiersza macierzy.</a>
-<br />
-<a asp-controller="Operations" asp-action="MatrixColumn">4. Oblicz sumę elementów z wskazanej kolumny macierzy.</a>
-<br />
-<a asp-controller="Operations" asp-action="Save">5. Zapisz macierz do pliku.</a>
+    <h1>Opcje</h1>
+    <form method="post">
+        @{
+            string list = "";
+            foreach (var item in Model.FormList)
+            {
+                list += item + ",";
+            }
+        }
+        <input type="hidden" id="formList" name="formList" value="@list"/>
+        <input type="hidden" id="matrixSize" name="matrixSize" value="@Model.MatrixSize" />
+        <br />
+        <button type="submit" class="btn btn-secondary" asp-controller="Operations" asp-action="Print">1. Wypisz macierz na ekran.</button>
+        <br />
+        <br />
+        <button type="submit" class="btn btn-secondary" asp-controller="Operations" asp-action="SumDiagonal">2. Oblicz sumę elementów głównej przekątnej macierzy.</button>
+        <br />
+        <br />
+        <button type="submit" class="btn btn-secondary" asp-controller="Operations" asp-action="MatrixRow">3. Oblicz sumę elementów z wskazanego wiersza macierzy.</button>
+        <br />
+        <br />
+        <button type="submit" class="btn btn-secondary" asp-controller="Operations" asp-action="MatrixColumn">4. Oblicz sumę elementów z wskazanej kolumny macierzy.</button>
+        <br />
+        <br />
+        <button type="submit" class="btn btn-secondary" asp-controller="Operations" asp-action="Save">5. Zapisz macierz do pliku.</button>
+    </form>
 </div>

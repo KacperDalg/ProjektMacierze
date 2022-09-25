@@ -1,4 +1,4 @@
-﻿using static Macierze.Controllers.OperationsController;
+﻿using Macierze.Models;
 
 namespace Macierze.MatrixOperations;
 public class MatrixOperationsProvider
@@ -12,14 +12,14 @@ public class MatrixOperationsProvider
         }
         return sum;
     }
-    public static int SumFromDiagonal()
+    public static int SumFromDiagonal(MatrixModel model)
     {
-        var size = Model.MatrixSize;
-        var List = Model.FormList;
+        var size = model.MatrixSize;
+        var list = model.FormList;
         int sum = 0;
-        for (int i = 0; i < List.Count; i++)
+        for (int i = 0; i < list.Count; i++)
         {
-            sum += int.Parse(List[i]);
+            sum += int.Parse(list[i]);
             i += size;
         }
         return sum;

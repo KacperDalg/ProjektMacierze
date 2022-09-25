@@ -1,20 +1,6 @@
 ﻿namespace Macierze.MatrixOperations;
-public class MatrixCheckProvider
+public class MatrixToListConverter
 {
-    public static int CheckMatrixSize(List<string> list)
-    {
-        int size = 0;
-
-        for (int i = 2; i <= 10; i++)
-        {
-            if (i * i == list.Count)
-            {
-                size = i;
-                break;
-            }
-        }
-        return size;
-    }
     public static List<string> ConvertMatrixToList(IFormCollection collection)
     {
         List<string> list = new List<string>();

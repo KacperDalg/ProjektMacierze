@@ -1,20 +1,16 @@
 ﻿@{
     ViewData["Title"] = "Wczytaj z pliku";
 }
-<center>
     
 <form method="post" enctype="multipart/form-data" style="font-size:20px;" asp-controller="Operations" asp-action="UploadFile">
-        <input type="file" name="file" /><br /><br />
-        <input style="font-size:20px;" class="btn btn-success" type="submit" />
+        <input type="file" style="display:block;margin:auto;" name="file" />
+        <br />
+        <input style="font-size:20px;display:block;margin:auto;" class="btn btn-success" type="submit" />
 </form>
+<h1 style="font-size:30px;text-align:center;">Wczytaj macierz </h1>
+<h2 style="font-size:18px;text-align:center;">Akceptowana struktura macierzy w pliku .txt to kolejne jej elementy (liczby) oddzielone znakiem spacji w tym samym wierszu, a wiersze oddzielone od siebie enterem (przykład poniżej).</h2>
+<img style="display:block;margin:auto;" src="~/img/txt_example.png" />
 <br />
-    <h1 style="font-size:30px;">Wczytaj macierz </h1>
-    <h2 style="font-size:18px;">Akceptowana struktura macierzy w pliku .txt to kolejne jej elementy (liczby) oddzielone znakiem spacji w tym samym wierszu, a wiersze oddzielone od siebie enterem (przykład poniżej).</h2>
-    <img src="~/img/txt_example.png" />
-    <br />
-    <br />
-    <h2 style="font-size:18px;">Akceptowana struktura macierzy w pliku .csv i .xlsx to kolejne jej elementy (liczby) w oddzielnych komórkach tabeli(przykład poniżej).</h2>
-    <img src="~/img/csv_example.png" />
-    <br />
-    <br />
-</center>
+<h2 style="font-size:18px;display:block;margin:auto;">Akceptowana struktura macierzy w pliku .csv i .xlsx to kolejne jej elementy (liczby) w oddzielnych komórkach tabeli(przykład poniżej).</h2>
+<br />
+<img style="display:block;margin:auto;" src="~/img/csv_example.png" />

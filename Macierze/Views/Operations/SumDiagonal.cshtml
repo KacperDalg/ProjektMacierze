@@ -1,12 +1,23 @@
-﻿@using Macierze.Models
-@{
+﻿@{
 
     ViewData["Title"] = "Suma przekątnej";
 }
+@model Macierze.Models.MatrixModel;
 
 <div class="center">
     <h1 style="font-size:30px;">Suma elementów głównej przekątnej macierzy jest równa: @ViewBag.Sum.</h1>
     <br />
     <br />
 </div>
-    <a asp-controller="Operations" asp-action="Options" class="btn btn-success" style="font-size:24px;position:absolute;left:50vw;bottom:50px;transform: translate(-50%, -50%);">Wróć do opcji</a>
+<form asp-action="RedirectToOptions" asp-controller="Operations">
+    @{
+        string list = "";
+        foreach (var item in Model.FormList)
+        {
+            list += item + ",";
+        }
+    }
+    <input type="hidden" id="formList" name="formList" value="@list" />
+    <input type="hidden" id="matrixSize" name="matrixSize" value="@Model.MatrixSize" />
+    <button type="submit" class="btn btn-success" style="font-size:24px;position:absolute;left:50vw;bottom:50px;transform: translate(-50%, -50%);">Wróć do opcji</button>
+</form>

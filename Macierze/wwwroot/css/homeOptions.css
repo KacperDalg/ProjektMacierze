@@ -7,8 +7,6 @@
     font-size: 50px;
 }
 
-    .options-container > a {
-        font-size: 28px;
-        padding: 5px;
-        display: block;
-    }
+.options-container button {
+    font-size:20px;
+}

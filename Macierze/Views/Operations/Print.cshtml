@@ -2,6 +2,7 @@
 
     ViewData["Title"] = "Twoja macierz";
 }
+@model Macierze.Models.MatrixModel;
     
     <h1 style="font-size:30px;text-align:center;margin-bottom:10px;display:block;">Wczytana macierz</h1>
     <div class="container-print">
@@ -10,11 +11,11 @@
             int x = 1;
         }
 
-        @foreach (var item in ViewBag.List)
+        @foreach (var item in Model.FormList)
         {
             <div class="item">@item</div>
             i += 1;
-            if (ViewBag.Size*x == i){
+            if (Model.MatrixSize*x == i){
                 <div class="linebreak"></div>
                 x+=1;
             }
@@ -25,4 +26,15 @@
         <div id="right-bottom" class="decor"></div>
     </div>
     <br />
-<a asp-controller="Operations" asp-action="Options" class="btn btn-success" style="font-size:24px;margin:auto;display:block;width:250px;">Wróć do opcji</a>
+<form asp-action="RedirectToOptions" asp-controller="Operations">
+    @{
+        string list = "";
+        foreach (var item in Model.FormList)
+        {
+            list += item + ",";
+        }
+    }
+    <input type="hidden" id="formList" name="formList" value="@list" />
+    <input type="hidden" id="matrixSize" name="matrixSize" value="@Model.MatrixSize" />
+<button type="submit" class="btn btn-success" style="font-size:24px;margin:auto;display:block;width:250px;">Wróć do opcji</button>
+</form>

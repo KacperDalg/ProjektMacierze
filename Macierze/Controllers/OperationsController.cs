@@ -1,17 +1,17 @@
 ﻿using Macierze.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Text;
-using static Macierze.MatrixOperations.MatrixCheckProvider;
+using static Macierze.MatrixOperations.MatrixToListConverter;
 using static Macierze.MatrixOperations.MatrixOperationsProvider;
 using static Macierze.FileOperations.MatrixToTxtFileConverter;
 using static Macierze.FileOperations.TxtFileToMatrixConverter;
 using static Macierze.FileOperations.XlsxFileToMatrixConverter;
 using static Macierze.FileOperations.CsvFileToMatrixConverter;
+using static Macierze.MatrixOperations.MatrixModelGenerator;
 
 namespace Macierze.Controllers;
 public class OperationsController : Controller
 {
-    public static MatrixModel Model = new MatrixModel();
 
     [HttpPost]
     public RedirectToActionResult MatrixCheck(IFormCollection collection)
@@ -28,9 +28,7 @@ public class OperationsController : Controller
         }
         else
         {
-            Model.MatrixSize = CheckMatrixSize(matrixNumbersArray);
-            Model.FormList = matrixNumbersArray;
-            return RedirectToAction("Options", "Operations");
+            return RedirectToAction("Options", "Operations", GenerateMatrixModel(matrixNumbersArray));
         }
     }
 
@@ -60,80 +58,84 @@ public class OperationsController : Controller
         {
             return View("ErrorMatrixSize");
         }
-        Model.FormList = matrixNumbersArray;
-        Model.MatrixSize = Convert.ToInt32(Math.Sqrt(Convert.ToDouble(matrixNumbersArray.Count)));
-        return View("Options");
+
+        return View("Options", GenerateMatrixModel(matrixNumbersArray));
     }
 
-    public IActionResult Options()
+    public IActionResult Options(MatrixModel model)
     {
-        return View();
+        return View(model);
     }
 
+    public RedirectToActionResult RedirectToOptions(string formList, int matrixSize)
+    {
+        return RedirectToAction("Options", RegenerateMatrixModel(formList, matrixSize));
+    }
     public IActionResult ErrorMatrixSize()
     {
         return View();
     }
 
-    public IActionResult Print()
+    [HttpPost]
+    public IActionResult Print(string formList, int matrixSize)
     {
-        ViewBag.Size = Model.MatrixSize;
-        ViewBag.List = Model.FormList;
-        return View();
+        return View(RegenerateMatrixModel(formList, matrixSize));
     }
 
-    public IActionResult SumDiagonal()
+    [HttpPost]
+    public IActionResult SumDiagonal(string formList, int matrixSize)
     {
-        ViewBag.Sum = SumFromDiagonal();
-        return View();
+        ViewBag.Sum = SumFromDiagonal(RegenerateMatrixModel(formList, matrixSize));
+        return View(RegenerateMatrixModel(formList, matrixSize));
     }
 
-    public IActionResult MatrixRow()
+    [HttpPost]
+    public IActionResult MatrixRow(string formList, int matrixSize)
     {
-        return View();
+        return View(RegenerateMatrixModel(formList, matrixSize));
     }
 
-    public IActionResult SumRow(string row)
+    public IActionResult SumRow(string row, string formList, int matrixSize)
     {
-        var list = Model.FormList;
-        var size = Model.MatrixSize;
-        if (row == null || int.Parse(row) > size || int.Parse(row) < 1)
+        var model = RegenerateMatrixModel(formList, matrixSize);
+        if (row == null || int.Parse(row) > matrixSize || int.Parse(row) < 1)
         {
-            ViewBag.Size = size;
-            return View("ErrorRow");
+            ViewBag.Size = matrixSize;
+            return View("ErrorRow", model);
         }
         else
         {
             ViewBag.Row = row;
-            ViewBag.Sum = SumFromRow(list, size, row);
-            return View();
+            ViewBag.Sum = SumFromRow(model.FormList, matrixSize, row);
+            return View(model);
         }
     }
 
-    public IActionResult MatrixColumn()
+    [HttpPost]
+    public IActionResult MatrixColumn(string formList, int matrixSize)
     {
-        return View();
+        return View(RegenerateMatrixModel(formList, matrixSize));
     }
 
-    public IActionResult SumColumn(string column)
+    public IActionResult SumColumn(string column, string formList, int matrixSize)
     {
-        var list = Model.FormList;
-        var size = Model.MatrixSize;
-        if (column == null || int.Parse(column) > size || int.Parse(column) < 1)
+        var model = RegenerateMatrixModel(formList, matrixSize);
+        if (column == null || int.Parse(column) > matrixSize || int.Parse(column) < 1)
         {
-            ViewBag.Size = size;
-            return View("ErrorColumn");
+            ViewBag.Size = matrixSize;
+            return View("ErrorColumn", model);
         }
         else
         {
             ViewBag.Column = column;
-            ViewBag.Sum = SumFromColumn(list, size, column);
-            return View();
+            ViewBag.Sum = SumFromColumn(model.FormList, matrixSize, column);
+            return View(model);
         }
     }
 
-    public FileResult Save()
+    [HttpPost]
+    public FileResult Save(string formList, int matrixSize)
     {
-        return File(Encoding.ASCII.GetBytes(ConvertMatrixToString()), "text/plain", "moja_macierz.txt");
+        return File(Encoding.ASCII.GetBytes(ConvertMatrixToString(RegenerateMatrixModel(formList, matrixSize))), "text/plain", "moja_macierz.txt");
     }
 }
