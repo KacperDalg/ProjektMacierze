@@ -5,7 +5,7 @@
 @model Macierze.Models.MatrixModel;
 
 <div class="center">
-    <h1 style="font-size:30px;">Brak określonego wierszu w macierzy! (Minimalny wiersz - 1; Maksymalny wiersz - @ViewBag.Size)</h1>
+    <h1 style="font-size:30px;">Brak określonego wierszu w macierzy! (Minimalny wiersz - 1; Maksymalny wiersz - @Model.MatrixSize)</h1>
     <br />
 </div>
 <form asp-action="RedirectToOptions" asp-controller="Operations">

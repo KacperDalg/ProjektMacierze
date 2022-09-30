@@ -5,7 +5,7 @@
 @model Macierze.Models.MatrixModel;
 
 <div class="center">
-    <h1 style="font-size:30px;">Brak określonej kolumny w macierzy! (Minimalna kolumna - 1; Maksymalna kolumna - @ViewBag.Size)</h1>
+    <h1 style="font-size:30px;">Brak określonej kolumny w macierzy! (Minimalna kolumna - 1; Maksymalna kolumna - @Model.MatrixSize)</h1>
     <br />
 </div>
 <form asp-action="RedirectToOptions" asp-controller="Operations">

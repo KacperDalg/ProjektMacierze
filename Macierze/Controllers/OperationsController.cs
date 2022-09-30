@@ -86,8 +86,9 @@ public class OperationsController : Controller
     [HttpPost]
     public IActionResult SumDiagonal(string formList, int matrixSize)
     {
-        ViewBag.Sum = SumFromDiagonal(RegenerateMatrixModel(formList, matrixSize));
-        return View(RegenerateMatrixModel(formList, matrixSize));
+        var model = RegenerateMatrixModel(formList, matrixSize);
+        model.Sum = SumFromDiagonal(model);
+        return View(model);
     }
 
     [HttpPost]
@@ -101,13 +102,12 @@ public class OperationsController : Controller
         var model = RegenerateMatrixModel(formList, matrixSize);
         if (row == null || int.Parse(row) > matrixSize || int.Parse(row) < 1)
         {
-            ViewBag.Size = matrixSize;
             return View("ErrorRow", model);
         }
         else
         {
-            ViewBag.Row = row;
-            ViewBag.Sum = SumFromRow(model.FormList, matrixSize, row);
+            model.Sequence = row;
+            model.Sum = SumFromRow(model.FormList, matrixSize, row);
             return View(model);
         }
     }
@@ -123,13 +123,12 @@ public class OperationsController : Controller
         var model = RegenerateMatrixModel(formList, matrixSize);
         if (column == null || int.Parse(column) > matrixSize || int.Parse(column) < 1)
         {
-            ViewBag.Size = matrixSize;
             return View("ErrorColumn", model);
         }
         else
         {
-            ViewBag.Column = column;
-            ViewBag.Sum = SumFromColumn(model.FormList, matrixSize, column);
+            model.Sequence = column;
+            model.Sum = SumFromColumn(model.FormList, matrixSize, column);
             return View(model);
         }
     }
