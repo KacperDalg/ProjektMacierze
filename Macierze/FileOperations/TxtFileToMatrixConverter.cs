@@ -1,4 +1,5 @@
 ﻿namespace Macierze.FileOperations;
+
 public class TxtFileToMatrixConverter
 {
     public static List<string> ReadTxtFile(List<string> numbers, IFormFile file)

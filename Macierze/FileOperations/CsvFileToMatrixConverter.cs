@@ -1,4 +1,5 @@
 ﻿namespace Macierze.FileOperations;
+
 public class CsvFileToMatrixConverter
 {
     public static List<string> ReadCsvFile(List<string> numbers, IFormFile file)

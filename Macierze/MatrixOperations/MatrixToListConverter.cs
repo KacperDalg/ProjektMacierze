@@ -15,7 +15,6 @@ public class MatrixToListConverter
                 return new List<string>();
             }
         }
-
         list.RemoveAt(list.Count - 1);
         return list;
     }

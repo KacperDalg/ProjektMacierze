@@ -1,6 +1,7 @@
 ﻿using Macierze.Models;
 
 namespace Macierze.FileOperations;
+
 public class MatrixToTxtFileConverter
 {
     public static string ConvertMatrixToString(MatrixModel Model)

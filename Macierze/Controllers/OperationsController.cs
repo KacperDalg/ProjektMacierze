@@ -10,9 +10,9 @@ using static Macierze.FileOperations.CsvFileToMatrixConverter;
 using static Macierze.MatrixOperations.MatrixModelGenerator;
 
 namespace Macierze.Controllers;
+
 public class OperationsController : Controller
 {
-
     [HttpPost]
     public RedirectToActionResult MatrixCheck(IFormCollection collection)
     {
@@ -71,6 +71,7 @@ public class OperationsController : Controller
     {
         return RedirectToAction("Options", RegenerateMatrixModel(formList, matrixSize));
     }
+
     public IActionResult ErrorMatrixSize()
     {
         return View();

@@ -1,6 +1,7 @@
 ﻿using Macierze.Models;
 
 namespace Macierze.MatrixOperations;
+
 public class MatrixOperationsProvider
 {
     public static int SumFromColumn(List<string> list, int size, string column)
@@ -12,6 +13,7 @@ public class MatrixOperationsProvider
         }
         return sum;
     }
+
     public static int SumFromDiagonal(MatrixModel model)
     {
         var size = model.MatrixSize;
@@ -24,6 +26,7 @@ public class MatrixOperationsProvider
         }
         return sum;
     }
+
     public static int SumFromRow(List<string> list, int size, string row)
     {
         int sum = 0;
