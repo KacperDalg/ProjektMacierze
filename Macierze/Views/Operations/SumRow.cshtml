@@ -1,8 +1,8 @@
-﻿@{
-
+﻿@using Newtonsoft.Json
+@{
     ViewData["Title"] = "Suma z wiersza";
+    @model Macierze.Models.MatrixModel;
 }
-@model Macierze.Models.MatrixModel;
 
 <div class="center">
     <h1 style="font-size:30px;">Suma elementów z wiersza @Model.Sequence. jest równa: @Model.Sum.</h1>
@@ -11,13 +11,8 @@
 </div>
 <form asp-action="RedirectToOptions" asp-controller="Operations">
     @{
-        string list = "";
-        foreach (var item in Model.FormList)
-        {
-            list += item + ",";
-        }
+        string serializedObject = JsonConvert.SerializeObject(Model);
     }
-    <input type="hidden" id="formList" name="formList" value="@list" />
-    <input type="hidden" id="matrixSize" name="matrixSize" value="@Model.MatrixSize" />
+    <input type="hidden" id="serializedObject" name="serializedObject" value="@serializedObject" />
     <button type="submit" class="btn btn-success" style="font-size:24px;position:absolute;left:50vw;bottom:50px;transform: translate(-50%, -50%);">Wróć do opcji</button>
 </form>

@@ -1,8 +1,8 @@
-﻿@{
-
+﻿@using Newtonsoft.Json
+@{
     ViewData["Title"] = "Twoja macierz";
+    @model Macierze.Models.MatrixModel;
 }
-@model Macierze.Models.MatrixModel;
     
     <h1 style="font-size:30px;text-align:center;margin-bottom:10px;display:block;">Wczytana macierz</h1>
     <div class="container-print">
@@ -28,13 +28,8 @@
     <br />
 <form asp-action="RedirectToOptions" asp-controller="Operations">
     @{
-        string list = "";
-        foreach (var item in Model.FormList)
-        {
-            list += item + ",";
-        }
+        string serializedObject = JsonConvert.SerializeObject(Model);
     }
-    <input type="hidden" id="formList" name="formList" value="@list" />
-    <input type="hidden" id="matrixSize" name="matrixSize" value="@Model.MatrixSize" />
+    <input type="hidden" id="serializedObject" name="serializedObject" value="@serializedObject" />
 <button type="submit" class="btn btn-success" style="font-size:24px;margin:auto;display:block;width:250px;">Wróć do opcji</button>
 </form>

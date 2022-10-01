@@ -1,13 +1,14 @@
 ﻿using Macierze.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Text;
+using static Macierze.MatrixOperations.MatrixModelGenerator;
+using static Macierze.MatrixOperations.MatrixModelDeserializer;
 using static Macierze.MatrixOperations.MatrixToListConverter;
 using static Macierze.MatrixOperations.MatrixOperationsProvider;
 using static Macierze.FileOperations.MatrixToTxtFileConverter;
 using static Macierze.FileOperations.TxtFileToMatrixConverter;
 using static Macierze.FileOperations.XlsxFileToMatrixConverter;
 using static Macierze.FileOperations.CsvFileToMatrixConverter;
-using static Macierze.MatrixOperations.MatrixModelGenerator;
 
 namespace Macierze.Controllers;
 
@@ -67,9 +68,9 @@ public class OperationsController : Controller
         return View(model);
     }
 
-    public RedirectToActionResult RedirectToOptions(string formList, int matrixSize)
+    public RedirectToActionResult RedirectToOptions(string serializedMatrix)
     {
-        return RedirectToAction("Options", RegenerateMatrixModel(formList, matrixSize));
+        return RedirectToAction("Options", DeserializeMatrixModel(serializedMatrix));
     }
 
     public IActionResult ErrorMatrixSize()
@@ -78,64 +79,64 @@ public class OperationsController : Controller
     }
 
     [HttpPost]
-    public IActionResult Print(string formList, int matrixSize)
+    public IActionResult Print(string serializedMatrix)
     {
-        return View(RegenerateMatrixModel(formList, matrixSize));
+        return View(DeserializeMatrixModel(serializedMatrix));
     }
 
     [HttpPost]
-    public IActionResult SumDiagonal(string formList, int matrixSize)
+    public IActionResult SumDiagonal(string serializedMatrix)
     {
-        var model = RegenerateMatrixModel(formList, matrixSize);
+        MatrixModel model = DeserializeMatrixModel(serializedMatrix);
         model.Sum = SumFromDiagonal(model);
         return View(model);
     }
 
     [HttpPost]
-    public IActionResult MatrixRow(string formList, int matrixSize)
+    public IActionResult MatrixRow(string serializedMatrix)
     {
-        return View(RegenerateMatrixModel(formList, matrixSize));
+        return View(DeserializeMatrixModel(serializedMatrix));
     }
 
-    public IActionResult SumRow(string row, string formList, int matrixSize)
+    public IActionResult SumRow(string row, string serializedMatrix)
     {
-        var model = RegenerateMatrixModel(formList, matrixSize);
-        if (row == null || int.Parse(row) > matrixSize || int.Parse(row) < 1)
+        MatrixModel model = DeserializeMatrixModel(serializedMatrix);
+        if (row == null || int.Parse(row) > model.MatrixSize || int.Parse(row) < 1)
         {
             return View("ErrorRow", model);
         }
         else
         {
             model.Sequence = row;
-            model.Sum = SumFromRow(model.FormList, matrixSize, row);
+            model.Sum = SumFromRow(model, row);
             return View(model);
         }
     }
 
     [HttpPost]
-    public IActionResult MatrixColumn(string formList, int matrixSize)
+    public IActionResult MatrixColumn(string serializedMatrix)
     {
-        return View(RegenerateMatrixModel(formList, matrixSize));
+        return View(DeserializeMatrixModel(serializedMatrix));
     }
 
-    public IActionResult SumColumn(string column, string formList, int matrixSize)
+    public IActionResult SumColumn(string column, string serializedMatrix)
     {
-        var model = RegenerateMatrixModel(formList, matrixSize);
-        if (column == null || int.Parse(column) > matrixSize || int.Parse(column) < 1)
+        MatrixModel model = DeserializeMatrixModel(serializedMatrix);
+        if (column == null || int.Parse(column) > model.MatrixSize || int.Parse(column) < 1)
         {
             return View("ErrorColumn", model);
         }
         else
         {
             model.Sequence = column;
-            model.Sum = SumFromColumn(model.FormList, matrixSize, column);
+            model.Sum = SumFromColumn(model, column);
             return View(model);
         }
     }
 
     [HttpPost]
-    public FileResult Save(string formList, int matrixSize)
+    public FileResult Save(string serializedMatrix)
     {
-        return File(Encoding.ASCII.GetBytes(ConvertMatrixToString(RegenerateMatrixModel(formList, matrixSize))), "text/plain", "moja_macierz.txt");
+        return File(Encoding.ASCII.GetBytes(ConvertMatrixToString(DeserializeMatrixModel(serializedMatrix))), "text/plain", "moja_macierz.txt");
     }
 }

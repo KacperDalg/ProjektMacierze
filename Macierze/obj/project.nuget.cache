@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "xx+d8DpTONpTSY2nrTiYnXzVmfdmIVgKky8ZYlwDnksDC7Ampjjrush0vycrL/LeN24QHpokJrYAWdCa6udvvQ==",
+  "dgSpecHash": "xYdiDpszMmzpIHkqGBYAA6TffVge8UJLUptjhLesTesPBEEgCBp41DzhSP9/kqcd/u7DFydzd8XM56RICblRyg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Kacper\\source\\repos\\Macierze\\Macierze\\Macierze.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,7 @@
     "C:\\Users\\Kacper\\.nuget\\packages\\exceldatareader.dataset\\3.6.0\\exceldatareader.dataset.3.6.0.nupkg.sha512",
     "C:\\Users\\Kacper\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\Kacper\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
+    "C:\\Users\\Kacper\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Users\\Kacper\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",
     "C:\\Users\\Kacper\\.nuget\\packages\\system.diagnostics.debug\\4.3.0\\system.diagnostics.debug.4.3.0.nupkg.sha512",
     "C:\\Users\\Kacper\\.nuget\\packages\\system.globalization\\4.3.0\\system.globalization.4.3.0.nupkg.sha512",

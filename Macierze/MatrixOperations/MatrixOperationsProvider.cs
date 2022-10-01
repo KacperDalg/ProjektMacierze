@@ -4,8 +4,10 @@ namespace Macierze.MatrixOperations;
 
 public class MatrixOperationsProvider
 {
-    public static int SumFromColumn(List<string> list, int size, string column)
+    public static int SumFromColumn(MatrixModel model, string column)
     {
+        int size = model.MatrixSize;
+        List<string> list = model.FormList;
         int sum = 0;
         for (int i = int.Parse(column) - 1; i <= size * size - size + int.Parse(column); i += size)
         {
@@ -27,8 +29,10 @@ public class MatrixOperationsProvider
         return sum;
     }
 
-    public static int SumFromRow(List<string> list, int size, string row)
+    public static int SumFromRow(MatrixModel model, string row)
     {
+        int size = model.MatrixSize;
+        List<string> list = model.FormList;
         int sum = 0;
         for (int i = (int.Parse(row) - 1) * size; i < (int.Parse(row) - 1) * size + size; i++)
         {

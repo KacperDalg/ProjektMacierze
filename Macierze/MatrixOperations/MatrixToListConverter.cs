@@ -1,4 +1,5 @@
 ﻿namespace Macierze.MatrixOperations;
+
 public class MatrixToListConverter
 {
     public static List<string> ConvertMatrixToList(IFormCollection collection)

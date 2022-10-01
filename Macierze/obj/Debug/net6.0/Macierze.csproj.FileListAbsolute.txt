@@ -27,3 +27,4 @@ C:\Users\Kacper\source\repos\Macierze\Macierze\obj\Debug\net6.0\ref\Macierze.dll
 C:\Users\Kacper\source\repos\Macierze\Macierze\bin\Debug\net6.0\ExcelDataReader.dll
 C:\Users\Kacper\source\repos\Macierze\Macierze\bin\Debug\net6.0\ExcelDataReader.DataSet.dll
 C:\Users\Kacper\source\repos\Macierze\Macierze\obj\Debug\net6.0\Macierze.csproj.CopyComplete
+C:\Users\Kacper\source\repos\Macierze\Macierze\bin\Debug\net6.0\Newtonsoft.Json.dll

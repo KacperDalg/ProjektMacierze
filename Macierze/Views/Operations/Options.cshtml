@@ -1,20 +1,16 @@
-﻿@{
+﻿@using Newtonsoft.Json
+@{
     ViewData["Title"] = "Opcje";
+    @model Macierze.Models.MatrixModel;
 }
-@model Macierze.Models.MatrixModel;
 
 <div class="options-container">
     <h1>Opcje</h1>
     <form method="post">
         @{
-            string list = "";
-            foreach (var item in Model.FormList)
-            {
-                list += item + ",";
-            }
+            string serializedObject = JsonConvert.SerializeObject(Model);
         }
-        <input type="hidden" id="formList" name="formList" value="@list"/>
-        <input type="hidden" id="matrixSize" name="matrixSize" value="@Model.MatrixSize" />
+        <input type="hidden" id="serializedObject" name="serializedObject" value="@serializedObject" />
         <br />
         <button type="submit" class="btn btn-secondary" asp-controller="Operations" asp-action="Print">1. Wypisz macierz na ekran.</button>
         <br />
