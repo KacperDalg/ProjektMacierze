@@ -2,34 +2,33 @@
 @{
     ViewData["Title"] = "Twoja macierz";
     @model Macierze.Models.MatrixModel;
+    string serializedMatrix = JsonConvert.SerializeObject(Model);
 }
-    
-    <h1 style="font-size:30px;text-align:center;margin-bottom:10px;display:block;">Wczytana macierz</h1>
-    <div class="container-print">
-        @{
-            int i = 0;
-            int x = 1;
-        }
 
-        @foreach (var item in Model.FormList)
-        {
-            <div class="item">@item</div>
-            i += 1;
-            if (Model.MatrixSize*x == i){
-                <div class="linebreak"></div>
-                x+=1;
-            }
-        }
-        <div id="left-top" class="decor"></div>
-        <div id="right-top" class="decor"></div>
-        <div id="left-bottom" class="decor"></div>
-        <div id="right-bottom" class="decor"></div>
-    </div>
-    <br />
-<form asp-action="RedirectToOptions" asp-controller="Operations">
+<h1 style="font-size:30px;text-align:center;margin-bottom:10px;display:block;">Wczytana macierz</h1>
+<div class="container-print">
     @{
-        string serializedObject = JsonConvert.SerializeObject(Model);
+        int i = 0;
+        int x = 1;
     }
-    <input type="hidden" id="serializedObject" name="serializedObject" value="@serializedObject" />
-<button type="submit" class="btn btn-success" style="font-size:24px;margin:auto;display:block;width:250px;">Wróć do opcji</button>
+
+    @foreach (var item in Model.FormList)
+    {
+        <div class="item">@item</div>
+        i += 1;
+        if (Model.MatrixSize * x == i)
+        {
+            <div class="linebreak"></div>
+            x += 1;
+        }
+    }
+    <div id="left-top" class="decor"></div>
+    <div id="right-top" class="decor"></div>
+    <div id="left-bottom" class="decor"></div>
+    <div id="right-bottom" class="decor"></div>
+</div>
+<br />
+<form asp-action="RedirectToOptions" asp-controller="Operations">
+    <input type="hidden" id="serializedMatrix" name="serializedMatrix" value="@serializedMatrix" />
+    <button type="submit" class="btn btn-success" style="font-size:24px;margin:auto;display:block;width:250px;">Wróć do opcji</button>
 </form>

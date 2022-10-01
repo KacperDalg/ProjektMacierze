@@ -98,10 +98,10 @@ public class OperationsController : Controller
         return View(DeserializeMatrixModel(serializedMatrix));
     }
 
-    public IActionResult SumRow(string row, string serializedMatrix)
+    public IActionResult SumRow(int row, string serializedMatrix)
     {
         MatrixModel model = DeserializeMatrixModel(serializedMatrix);
-        if (row == null || int.Parse(row) > model.MatrixSize || int.Parse(row) < 1)
+        if (row == null || row > model.MatrixSize || row < 1)
         {
             return View("ErrorRow", model);
         }
@@ -119,10 +119,10 @@ public class OperationsController : Controller
         return View(DeserializeMatrixModel(serializedMatrix));
     }
 
-    public IActionResult SumColumn(string column, string serializedMatrix)
+    public IActionResult SumColumn(int column, string serializedMatrix)
     {
         MatrixModel model = DeserializeMatrixModel(serializedMatrix);
-        if (column == null || int.Parse(column) > model.MatrixSize || int.Parse(column) < 1)
+        if (column == null || column > model.MatrixSize || column < 1)
         {
             return View("ErrorColumn", model);
         }

@@ -2,15 +2,13 @@
 @{
     ViewData["Title"] = "Opcje";
     @model Macierze.Models.MatrixModel;
+    string serializedMatrix = JsonConvert.SerializeObject(Model);
 }
 
 <div class="options-container">
     <h1>Opcje</h1>
     <form method="post">
-        @{
-            string serializedObject = JsonConvert.SerializeObject(Model);
-        }
-        <input type="hidden" id="serializedObject" name="serializedObject" value="@serializedObject" />
+        <input type="hidden" id="serializedMatrix" name="serializedMatrix" value="@serializedMatrix" />
         <br />
         <button type="submit" class="btn btn-secondary" asp-controller="Operations" asp-action="Print">1. Wypisz macierz na ekran.</button>
         <br />
