@@ -101,7 +101,7 @@ public class OperationsController : Controller
     public IActionResult SumRow(int row, string serializedMatrix)
     {
         MatrixModel model = DeserializeMatrixModel(serializedMatrix);
-        if (row == null || row > model.MatrixSize || row < 1)
+        if (row > model.MatrixSize || row < 1)
         {
             return View("ErrorRow", model);
         }
@@ -122,7 +122,7 @@ public class OperationsController : Controller
     public IActionResult SumColumn(int column, string serializedMatrix)
     {
         MatrixModel model = DeserializeMatrixModel(serializedMatrix);
-        if (column == null || column > model.MatrixSize || column < 1)
+        if (column > model.MatrixSize || column < 1)
         {
             return View("ErrorColumn", model);
         }
